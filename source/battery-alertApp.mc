@@ -70,6 +70,7 @@ class MyServiceDelegate extends System.ServiceDelegate {
                     new Attention.VibeProfile(50, 2000)  // on for two seconds
                 ];
                 // Attention.vibrate(vibeData);
+                System.println(vibeData);
             }
         }
     }
