@@ -61,7 +61,7 @@ class MyServiceDelegate extends System.ServiceDelegate {
         System.println(myStats.battery);
         if (myStats.battery <= 30 && !myStats.charging){
             if (Attention has :vibrate) {
-                vibeData =
+                var vibeData =
                 [
                     new Attention.VibeProfile(50, 2000), // On for two seconds
                     new Attention.VibeProfile(0, 2000),  // Off for two seconds
@@ -69,8 +69,8 @@ class MyServiceDelegate extends System.ServiceDelegate {
                     new Attention.VibeProfile(0, 2000),  // Off for two seconds
                     new Attention.VibeProfile(50, 2000)  // on for two seconds
                 ];
+                // Attention.vibrate(vibeData);
             }
-            // Attention.vibrate(vibeData);
         }
     }
 
