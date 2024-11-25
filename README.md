@@ -1,0 +1,1 @@
+An app to vibrate your watch when a specific battery percentage is reached
