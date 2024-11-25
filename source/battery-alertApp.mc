@@ -4,6 +4,7 @@ import Toybox.WatchUi;
 import Toybox.System;
 import Toybox.Background;
 import Toybox.Time;
+import Toybox.Attention;
 
 // Because this is referenced in the application object
 // constructor, it must be marked as background.
@@ -57,8 +58,20 @@ class MyServiceDelegate extends System.ServiceDelegate {
 
     public function onTemporalEvent() as Void {
         var myStats = System.getSystemStats();
-        var batteryPercentage = myStats.battery;
-        System.println(batteryPercentage);
+        System.println(myStats.battery);
+        if (myStats.battery <= 30 && !myStats.charging){
+            if (Attention has :vibrate) {
+                vibeData =
+                [
+                    new Attention.VibeProfile(50, 2000), // On for two seconds
+                    new Attention.VibeProfile(0, 2000),  // Off for two seconds
+                    new Attention.VibeProfile(50, 2000), // On for two seconds
+                    new Attention.VibeProfile(0, 2000),  // Off for two seconds
+                    new Attention.VibeProfile(50, 2000)  // on for two seconds
+                ];
+            }
+            // Attention.vibrate(vibeData);
+        }
     }
 
 }
